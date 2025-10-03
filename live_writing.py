@@ -73,7 +73,7 @@ def predict_digit(model, img):
     return predicted
 
 # Load HSV values
-hsv_value = np.load('Real-Time-Hand-Written-Digit-Recognition\hsv_value.npy')
+hsv_value = np.load('hsv_value.npy')
 
 cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
