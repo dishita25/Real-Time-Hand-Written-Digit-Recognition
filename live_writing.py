@@ -20,9 +20,10 @@ def preprocess_digit(digit_img):
 
     digit_img = cv2.bitwise_not(digit_img)
     _, digit_img = cv2.threshold(digit_img, 127, 255, cv2.THRESH_BINARY)
+    digit_img = cv2.dilate(digit_img, np.ones((2,2), np.uint8), iterations=1)
 
     # Normalize background brightness
-    digit_img = cv2.GaussianBlur(digit_img, (3, 3), 0)
+    # digit_img = cv2.GaussianBlur(digit_img, (3, 3), 0)
 
     contours, _ = cv2.findContours(digit_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     if contours:
